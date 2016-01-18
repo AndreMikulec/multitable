@@ -1,7 +1,6 @@
 Package: multitable
 Type: Package
-Title: Simultaneous manipulation of multiple arrays of data, with data.list
-    objects
+Title: Simultaneous Manipulation of Multiple Arrays of Data
 Version: 1.7
 Date: 2014-10-24
 Author: Steve C Walker
@@ -15,7 +14,8 @@ Suggests:
     ggplot2,
     rbenchmark,
     scales,
-    vegan
+    vegan,
+    Matrix
 License: GPL-2
 URL: http://multitable.r-forge.r-project.org/
 LazyLoad: yes

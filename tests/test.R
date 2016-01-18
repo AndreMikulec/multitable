@@ -633,10 +633,12 @@ test_that("bm attribute gets renamed properly when variables are renamed",{
 
 test_that("no benchmark per se",{
     library(multitable)
+    require(Matrix)
     a <- data.frame(a = 1:5,  n = letters[1:5], m = rep("A",5))
     b <- data.frame(b = 6:10, n = rep("a",5), m = LETTERS[1:5])
-    data.list(a = 1:5, b = 1:3, c = sparseMatrix(i=1,j=1,x=0,dims=c(10,5)))
-    dlcast(list(a,b))
+    ## FIXME:  what was this test for?
+    ## data.list(a = 1:5, b = 1:3, c = sparseMatrix(i=1,j=1,x=0,dims=c(10,5)))
+    ## dlcast(list(a,b))
 })
 
 test_that("reorder2 works",{

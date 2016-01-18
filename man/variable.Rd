@@ -8,13 +8,14 @@ Create simple data lists
 These functions create data lists with a single variable (\code{variable}) or several variables with identical dimensions of replication (\code{variableGroup}).
 }
 \usage{
-variable(x, dimids, name)
+variable(x, dimids, name, check = TRUE)
 variableGroup(x, dimids)
 }
 \arguments{
   \item{x}{For \code{variable}, the variable (vector, matrix, or array); for \code{variableGroup}, a \code{\link{data.frame}} or \code{\link{list}} with the variables in the group.}
   \item{dimids}{Character vector of identifiers for the dimensions of replication of the variable(s).}
   \item{name}{Character string giving the name of the variable}
+  \item{check}{\code{\link{as.data.list}}}
 }
 \value{A \code{\link{data.list}} object.}
 \seealso{
