@@ -428,12 +428,12 @@ p <- ggplot(higgins.df)
 p <- p + facet_wrap( ~ species, ncol = 4)
 p <- p + geom_point(aes(x = width, y = abundance, shape = life.history))
 p <- p + stat_smooth(aes(x = width, y = abundance), se = FALSE, 
-    method = 'bayesglm', form = y ~ x + I(x^2),
+    method = 'bayesglm', formula = y ~ x + I(x^2),
     colour = 'black', alpha = 0.4, geom = 'line',
     method.args = list(family = poisson))
-p <- p + scale_y_continuous(
-  trans = 'sqrt', 
-  breaks = trans_breaks('sqrt', function(x) x^2))
+p <- p + coord_trans(y = "sqrt")
+p <- p + scale_y_continuous(breaks = c(0, 10^2, 20^2))
+p <- p + theme_bw()
 
 
 ###################################################
@@ -492,15 +492,15 @@ library("ggplot2")
 ###################################################
 ### code chunk number 66: use sqrt y-axis (eval = FALSE)
 ###################################################
-## p <- p + scale_y_continuous(
-##   trans = 'sqrt', 
-##   breaks = trans_breaks('sqrt', function(x) x^2))
+## p <- p + 
+##     coord_trans(y = "sqrt") + 
+##     scale_y_continuous(breaks = c(0, 10^2, 20^2))
 
 
 ###################################################
 ### code chunk number 67: plot the graph (eval = FALSE)
 ###################################################
-## print(p)
+## print(p + theme_bw())
 
 
 ###################################################
