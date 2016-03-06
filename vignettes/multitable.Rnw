@@ -938,9 +938,9 @@ p <- ggplot(higgins.df)
 p <- p + facet_wrap( ~ species, ncol = 4)
 p <- p + geom_point(aes(x = width, y = abundance, shape = life.history))
 p <- p + stat_smooth(aes(x = width, y = abundance), se = FALSE, 
-    method = 'bayesglm', formula = y ~ x + I(x^2),
-    colour = 'black', alpha = 0.4, geom = 'line',
-    method.args = list(family = poisson))
+    method = 'bayesglm', geom = 'line',
+    colour = 'black', alpha = 0.4,
+    method.args = list(family = poisson, formula = y ~ x + I(x^2)))
 p <- p + coord_trans(y = "sqrt")
 p <- p + scale_y_continuous(breaks = c(0, 10^2, 20^2))
 p <- p + theme_bw()
@@ -988,9 +988,9 @@ This command also indicates that the $x$-$y$ position of the points will describ
 <<fit the smoother, eval = FALSE>>=
 library("arm")
 p <- p + stat_smooth(aes(x = width, y = abundance), se = FALSE, 
-    method = 'bayesglm', form = y ~ x + I(x^2),
-    colour = 'black', alpha = 0.4, geom = 'line',
-    method.args = list(family = poisson))
+    method = 'bayesglm', geom = 'line',
+    colour = 'black', alpha = 0.4,
+    method.args = list(family = poisson, formula = y ~ x + I(x^2)))
 @
 Finally, the \code{abundance} data are put on a square-root scale, to help visually homogenise residual variance.
 <<use sqrt y-axis, eval = FALSE>>=
