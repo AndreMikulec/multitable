@@ -963,7 +963,7 @@ higgins <- dims_to_vars(higgins)
 @
 The order of the panels in Figure~\ref{fig:facet} is not arbitrary; the \code{species} dimension is ordered by \code{life.history}.  This ordering helps to clarify whether certain types of species have similar \code{width}-\code{abundance} relationships, because the panels for similar species are adjacent in the faceted plot.  To do this, the \code{species} variable must be converted into an ordered factor, with ordering determined by \code{life.history}; the \code{with} and \code{reorder} functions are useful for this purpose,
 <<reorder the species dimension according to life history>>=
-higgins$species <- with(higgins, reorder(species, life.history))
+higgins$species <- with(higgins, reorder(species, rank(life.history)))
 @
 
 
